@@ -80,6 +80,8 @@ if choice_3 == "full house":
         scorecard["full house"] = 25
 
 
+
+# straight
 dice_2 = [6, 3, 2, 4, 1]
 dice_4 = [2, 4, 3, 3, 5]
 
@@ -100,11 +102,27 @@ while ind < (len(dice_4) - 1):
         ind += 1
     else: 
         ind += 1
-        i += 1
+        
         print(i , ind , "loop2")
         continue
     
+i = 0
+while i < len(dice_4) and not repdigit_found:
+    j = i + 1
+    while j < len(string) and not string[i] == string[j]:
+        i += 1
+        j += 1
     
+    if j < len(string):
+
+        while j < len(string) and string[i] == string[j]:
+            j += 1
+
+        if string[i] == string[j-1]:
+            repdigit_found = True
+            print(string[i:j])
+    
+    i = j + 1    
     
 
 
